@@ -1,0 +1,120 @@
+.form-container {
+  background-color: #0a0826;
+  width: 40%;
+  margin: auto;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+.loginUser {
+  text-align: center;
+  display: none;
+}
+.showLogin {
+  display: inline;
+}
+.userInfo {
+  color: orange;
+  margin-bottom: 20px;
+}
+.signInAndSignUpFormContainer {
+  display: none;
+}
+.showSignInAndSignUpForm {
+  display: inline;
+}
+.form-header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.form-header p {
+  background-color: orange;
+  color: #0a0826;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid orange;
+  transition: 0.3s;
+}
+.form-header p:hover {
+  color: orange;
+  background: none;
+}
+
+.form-body {
+  display: none;
+}
+.form-body fieldset {
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: orange;
+  border: 2px solid orange;
+  border-radius: 5px;
+}
+fieldset > legend {
+  padding: 0px 5px;
+}
+.form-control {
+  margin: 20px 0px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+.input-container input {
+  background: none;
+  border: 1px solid orange;
+  color: orange;
+  padding: 10px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  outline: none;
+}
+.input-container input::placeholder {
+  color: orange;
+}
+.input-container input:focus {
+  outline: 2px solid orange;
+}
+.form-footer {
+  text-align: center;
+  margin: 10px 0px;
+}
+.btn {
+  background: none;
+  border: 1px solid orange;
+  color: orange;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: 0.3s;
+  box-shadow: 2px 2px orange;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: orange;
+  color: #0a0826;
+}
+.form-footer-text {
+  padding: 5px 0px;
+}
+.form-footer-text p {
+  font-size: 14px;
+}
+.form-footer-text p span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.showForm {
+  display: inline;
+}
+@media only screen and (max-width: 700px) {
+  .form-container {
+    width: 80%;
+  }
+}
