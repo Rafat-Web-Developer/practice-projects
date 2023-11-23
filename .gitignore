@@ -1,0 +1,24 @@
+# Logs
+my-services-app/mylogs
+my-services-app/*.log
+my-services-app/npm-debug.log*
+my-services-app/yarn-debug.log*
+my-services-app/yarn-error.log*
+my-services-app/pnpm-debug.log*
+my-services-app/lerna-debug.log*
+
+my-services-app/node_modules
+my-services-app/dist
+my-services-app/dist-ssr
+my-services-app/*.local
+
+# Editor directories and files
+my-services-app/.vscode/*
+my-services-app/!.vscode/extensions.json
+my-services-app/.idea
+my-services-app/.DS_Store
+my-services-app/*.suo
+my-services-app/*.ntvs*
+my-services-app/*.njsproj
+my-services-app/*.sln
+my-services-app/*.sw?
