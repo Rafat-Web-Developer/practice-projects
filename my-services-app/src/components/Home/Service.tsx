@@ -13,7 +13,7 @@ const Service = () => {
   return (
     <Grid item xs={12} md={6} lg={4}>
       <Card sx={{ boxShadow: "3" }}>
-        <CardMedia sx={{ height: 140 }} image={cardImg} title="green iguana" />
+        <CardMedia sx={{ height: 220 }} image={cardImg} title="green iguana" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Service 1

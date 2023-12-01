@@ -1,20 +1,27 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import bannerImg from "../../assets/images/banner_img.png";
+import React from "react";
 
-const Banner = () => {
+type BannerProps = {
+  bannerImg: any;
+  bannerTitle: string;
+  bannerText: string;
+};
+
+const Banner: React.FC<BannerProps> = ({
+  bannerImg,
+  bannerTitle,
+  bannerText,
+}) => {
   return (
     <Box sx={{ padding: "24px" }}>
       <Grid container spacing={2}>
         <Grid item xs={8} sx={{ display: "flex", alignItems: "center" }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <Typography variant="h3" color="initial">
-              Find your best services
+              {bannerTitle}
             </Typography>
             <Typography variant="body1" color="initial">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam id
-              nobis sapiente temporibus, voluptas ratione et quo sunt vel aut
-              dolorum. Recusandae, consequatur. Vero amet earum aliquid tempora
-              nobis culpa.
+              {bannerText}
             </Typography>
             <Box>
               <Button variant="contained">Download My Resume</Button>
