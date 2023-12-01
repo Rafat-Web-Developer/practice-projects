@@ -1,11 +1,12 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import Accordion from "../../components/Accordion/Accordion";
 
 const Faq = () => {
   return (
     <Box sx={{ minHeight: "82vh" }}>
-      <Typography variant="h1" color="initial">
-        Faq
-      </Typography>
+      <Box sx={{ margin: "50px 0px" }}>
+        <Accordion></Accordion>
+      </Box>
     </Box>
   );
 };
