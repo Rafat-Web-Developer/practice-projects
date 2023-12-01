@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import Banner from "../../components/Shared/Banner";
-import bannerImg from "../../assets/images/my_img.png";
+import bannerImg from "../../assets/images/banner_img.png";
 
 function About() {
   return (
