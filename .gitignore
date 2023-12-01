@@ -22,3 +22,4 @@ my-services-app/*.ntvs*
 my-services-app/*.njsproj
 my-services-app/*.sln
 my-services-app/*.sw?
+node_modules
