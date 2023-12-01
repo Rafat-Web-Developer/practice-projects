@@ -1,5 +1,6 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Link, Typography } from "@mui/material";
 import React from "react";
+import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 
 type BannerProps = {
   bannerImg: any;
@@ -24,7 +25,16 @@ const Banner: React.FC<BannerProps> = ({
               {bannerText}
             </Typography>
             <Box>
-              <Button variant="contained">Download My Resume</Button>
+              <Button variant="contained" endIcon={<DownloadForOfflineIcon />}>
+                <Link
+                  sx={{ color: "white" }}
+                  href="https://drive.google.com/file/d/1Q7pHE5KBYHHFYs9OR4pR9k0AvujCwrkP/view?usp=sharing"
+                  underline="none"
+                  target="_blank"
+                >
+                  Download My Resume
+                </Link>
+              </Button>
             </Box>
           </Box>
         </Grid>

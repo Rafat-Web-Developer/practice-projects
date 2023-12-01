@@ -7,7 +7,7 @@ function UserLayout() {
   return (
     <>
       <Navbar />
-      <Container>
+      <Container sx={{ minHeight: "82vh" }}>
         <Outlet></Outlet>
       </Container>
       <Footer />

@@ -16,6 +16,12 @@ const Navbar = () => {
       case "/about":
         setValue(1);
         break;
+      case "/faq":
+        setValue(2);
+        break;
+      case "/login":
+        setValue(3);
+        break;
 
       default:
         break;
@@ -56,6 +62,11 @@ const Navbar = () => {
             label="FAQ"
             sx={{ color: value == 2 ? "primary" : "white" }}
             onClick={() => handleRoute("/faq")}
+          ></Tab>
+          <Tab
+            label="Login"
+            sx={{ color: value == 3 ? "primary" : "white" }}
+            onClick={() => handleRoute("/login")}
           ></Tab>
         </Tabs>
       </Toolbar>

@@ -5,7 +5,7 @@ import bannerImg from "../../assets/images/banner_img.png";
 
 function Home() {
   return (
-    <Box sx={{ minHeight: "82vh" }}>
+    <Box>
       <Banner
         bannerImg={bannerImg}
         bannerTitle="Find your best services"
