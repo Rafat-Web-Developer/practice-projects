@@ -17,63 +17,19 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
-import React, { useState } from "react";
-
-type UserType = {
-  name: string;
-  email: string;
-  password: string;
-};
-let users: UserType[] = [];
+import React from "react";
+import useUserRegistration from "../../hooks/useUserRegistration";
 
 const Signup: React.FC = () => {
-  const [openNotification, setOpenNotification] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>("");
-  const [successMessage, setSuccessMessage] = useState<string>("");
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-
-  const handleShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    const newUser: UserType = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-      password: event.target.password.value,
-    };
-    if (newUser?.password.length < 4) {
-      alert("Password have at least 4 character");
-    }
-
-    const getCurrentUsers: null | string = localStorage.getItem("users");
-
-    if (getCurrentUsers !== null) {
-      users = JSON.parse(getCurrentUsers);
-      if (users.length > 0) {
-        const findUser: UserType | undefined = users.find(
-          (user) => user?.email === newUser?.email
-        );
-        if (findUser) {
-          setSuccessMessage("");
-          setErrorMessage(
-            "This email already have an account || Please try again"
-          );
-          setOpenNotification(true);
-          return;
-        }
-      }
-    }
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
-    setErrorMessage("");
-    setSuccessMessage("User created successfully || You can login now");
-    setOpenNotification(true);
-    event.target.name.value = "";
-    event.target.email.value = "";
-    event.target.password.value = "";
-  };
+  const {
+    openNotification,
+    errorMessage,
+    successMessage,
+    showPassword,
+    setOpenNotification,
+    handleShowPassword,
+    handleSubmit,
+  } = useUserRegistration();
   return (
     <Box
       sx={{

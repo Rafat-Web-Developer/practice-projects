@@ -1,6 +1,7 @@
-import { VisibilityOff } from "@mui/icons-material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import {
+  Alert,
   Avatar,
   Box,
   Button,
@@ -10,13 +11,25 @@ import {
   InputLabel,
   OutlinedInput,
   Paper,
+  Snackbar,
   TextField,
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
+import React from "react";
+import useUserLogin from "../../hooks/useUserLogin";
 
-const Login = () => {
+const Signup: React.FC = () => {
+  const {
+    openNotification,
+    errorMessage,
+    successMessage,
+    showPassword,
+    setOpenNotification,
+    handleShowPassword,
+    handleSubmit,
+  } = useUserLogin();
   return (
     <Box
       sx={{
@@ -52,7 +65,7 @@ const Login = () => {
             Login Form
           </Typography>
         </Box>
-        <form action="">
+        <form onSubmit={(event) => handleSubmit(event)}>
           <Box
             sx={{
               display: "flex",
@@ -63,6 +76,7 @@ const Login = () => {
           >
             <TextField
               label="Email"
+              name="email"
               variant="outlined"
               sx={{ width: "60%" }}
               type="email"
@@ -74,17 +88,18 @@ const Login = () => {
               </InputLabel>
               <OutlinedInput
                 id="outlined-adornment-password"
-                type="password"
+                type={showPassword ? "text" : "password"}
+                name="password"
                 required
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
                       aria-label="toggle password visibility"
-                      // onClick={handleClickShowPassword}
+                      onClick={handleShowPassword}
                       // onMouseDown={handleMouseDownPassword}
                       edge="end"
                     >
-                      <VisibilityOff />
+                      {showPassword ? <Visibility /> : <VisibilityOff />}
                     </IconButton>
                   </InputAdornment>
                 }
@@ -105,7 +120,7 @@ const Login = () => {
         </form>
         <Box sx={{ marginLeft: "20px", marginTop: "20px" }}>
           <Typography variant="subtitle1" color="initial">
-            Create a new account{" >>> "}
+            Create your new account{" >>> "}
             <Link
               to="/signup"
               style={{
@@ -119,8 +134,23 @@ const Login = () => {
           </Typography>
         </Box>
       </Paper>
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        open={openNotification}
+        autoHideDuration={6000}
+        onClose={() => setOpenNotification(false)}
+      >
+        <Alert
+          onClose={() => setOpenNotification(false)}
+          severity={errorMessage ? "error" : "success"}
+          sx={{ width: "100%" }}
+        >
+          {errorMessage && errorMessage}
+          {successMessage && successMessage}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
 
-export default Login;
+export default Signup;
