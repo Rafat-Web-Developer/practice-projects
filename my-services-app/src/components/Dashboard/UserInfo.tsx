@@ -6,8 +6,19 @@ import {
   CardContent,
   Typography,
 } from "@mui/material";
+import React from "react";
+import useUsersAction from "../../hooks/useUsersAction";
+type UserType = {
+  name?: string;
+  email: string;
+  password: string;
+  isLoggedIn?: boolean;
+  isAdmin?: boolean;
+  status?: string;
+};
+const UserInfo: React.FC = () => {
+  const { user, logout, users } = useUsersAction();
 
-const UserInfo = () => {
   return (
     <Card sx={{ padding: "20px" }}>
       <CardContent>
@@ -17,13 +28,20 @@ const UserInfo = () => {
           </Typography>
         </Box>
         <Typography variant="h5" component="div">
-          Name : Rafat Hossain
+          Name : {user?.name}
         </Typography>
-        <Typography color="text.secondary">Email : test@gmail.com</Typography>
-        <Typography color="text.secondary">Role : Admin</Typography>
+        <Typography color="text.secondary">Email : {user?.email}</Typography>
+        <Typography color="text.secondary">
+          Role : {user && (user.isAdmin === true ? "Admin" : "User")}
+        </Typography>
       </CardContent>
       <CardActions>
-        <Button size="large" variant="contained" color="error">
+        <Button
+          size="large"
+          variant="contained"
+          color="error"
+          onClick={() => logout()}
+        >
           Logout
         </Button>
       </CardActions>

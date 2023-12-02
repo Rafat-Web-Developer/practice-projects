@@ -18,7 +18,7 @@ import {
 import { Link } from "react-router-dom";
 import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
 import React from "react";
-import useUserRegistration from "../../hooks/useUserRegistration";
+import useUsersAction from "../../hooks/useUsersAction";
 
 const Signup: React.FC = () => {
   const {
@@ -28,8 +28,8 @@ const Signup: React.FC = () => {
     showPassword,
     setOpenNotification,
     handleShowPassword,
-    handleSubmit,
-  } = useUserRegistration();
+    handleSignup,
+  } = useUsersAction();
   return (
     <Box
       sx={{
@@ -65,7 +65,7 @@ const Signup: React.FC = () => {
             Registration Form
           </Typography>
         </Box>
-        <form onSubmit={(event) => handleSubmit(event)}>
+        <form onSubmit={(event) => handleSignup(event)}>
           <Box
             sx={{
               display: "flex",

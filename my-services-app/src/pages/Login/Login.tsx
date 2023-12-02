@@ -15,10 +15,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import React from "react";
-import useUserLogin from "../../hooks/useUserLogin";
+import useUsersAction from "../../hooks/useUsersAction";
 
 const Signup: React.FC = () => {
   const {
@@ -28,8 +28,20 @@ const Signup: React.FC = () => {
     showPassword,
     setOpenNotification,
     handleShowPassword,
-    handleSubmit,
-  } = useUserLogin();
+    handleLogin,
+    user,
+    loading,
+  } = useUsersAction();
+  const navigate = useNavigate();
+
+  if (loading === true) {
+    return <div>Loading</div>;
+  }
+
+  if (user?.status == "active") {
+    navigate("/dashboard");
+  }
+
   return (
     <Box
       sx={{
@@ -65,7 +77,7 @@ const Signup: React.FC = () => {
             Login Form
           </Typography>
         </Box>
-        <form onSubmit={(event) => handleSubmit(event)}>
+        <form onSubmit={(event) => handleLogin(event)}>
           <Box
             sx={{
               display: "flex",
